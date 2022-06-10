@@ -6,6 +6,6 @@ categories: setup
 ---
 The Coursera Johns Hopkins Data Science specialization calls for submission of various data science project analysis and presentations. I have hosted some of these on this github. Here are a few of these assets.
 
-#MtCar analysis of 
+# MtCar analysis of 
 
 include link to page here
