@@ -14,10 +14,10 @@ To summarize the work : After exploring, visualizing and cleaning the data, I tr
 
 The data for this project come from [this source](http://groupware.les.inf.puc-rio.br/har). At time of submiting the assignment this link is not working, we found [this link](https://perceptualui.org/publications/velloso13_ah.pdf) instead
 
-## more about decision tree 
+### more about decision tree 
 
 
-## more about gradient boost
+### more about gradient boost
 
 
-## more about bagging tree bag
+### more about bagging tree bag
