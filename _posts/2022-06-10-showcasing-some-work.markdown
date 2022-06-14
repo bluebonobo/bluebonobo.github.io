@@ -26,7 +26,7 @@ The data for this project come from [this source](http://groupware.les.inf.puc-r
 ## Develop Data Products Course
 
 The course can be found [here](https://www.coursera.org/learn/data-products).  
-The shiny application developed can be found [here](https://bluebonobo.shinyapps.io/week4shinyapp/)
+The shiny application developed can be found [here](https://bluebonobo.shinyapps.io/week4shinyapp/). It is hosted by RStudio on shinyapps.io
 
 >A data product is the production output from a statistical analysis. Data products automate complex analysis tasks or use technology to expand the utility of a data informed model, algorithm or inference. This course covers the basics of creating data products using Shiny, R packages, and interactive graphics. The course will focus on the fundamentals of creating a data product that can be used to tell a story about data to a mass audience. 
 
