@@ -31,6 +31,12 @@ Preprocessing
 3. Whitespace elimination : the removal of white space and the conversion to lower case. For both tasks tm provides transformations
 4. Stop Word removal : Stopwords are words that are so common in a language that their information value is almost zero, in other words their entropy is very low. Therefore it is usual to remove them before further analysis. 
 
+Applications
+1. Count based evluation
+2. Simple text clustering
+3. Simple text classification
+
+
 ### CRAN Text Processing resources
 *revidew of the [CRAN resources](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html)*
 
