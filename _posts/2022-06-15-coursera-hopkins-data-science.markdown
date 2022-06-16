@@ -9,9 +9,6 @@ The Coursera Johns Hopkins Data Science specialization consists of 10 courses fo
 ## Few words about the Capstone project   
 In partnership with a corporate partner Swiftkey, the goal is to build a smart keyboard that makes it easier for people to type. One cornerstone of their smart keyboard is predictive text models (equivalent to autofill for next word). Developing basic understanding of Natural Language processing and Text Mining is required
 
-## Understanding the problem
-We download the capstone dataset which consists of 3 text files containing respectively tweats, blogs and news text. The dataset covers 4 languages : English, Russian, Finish and German. Size of the dataset is around 600MB :cry:
-
 ## Familiarization with NLP
 As a first step toward working on this project, you should familiarize yourself with Natural Language Processing, Text Mining, and the associated tools in R. 
 
@@ -35,3 +32,7 @@ As a first step toward working on this project, you should familiarize yourself 
 4. What are the common steps in natural language processing?
 5. What are some common issues in the analysis of text data?
 6. What is the relationship between NLP and the concepts you have learned in the Specialization?
+
+
+## Understanding the problem
+We download the capstone dataset which consists of 3 text files containing respectively tweats, blogs and news text. The dataset covers 4 languages : English, Russian, Finish and German. Size of the dataset is around 600MB :cry:
