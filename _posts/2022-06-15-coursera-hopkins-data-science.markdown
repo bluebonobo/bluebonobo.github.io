@@ -12,6 +12,18 @@ In partnership with a corporate partner Swiftkey, the goal is to build a smart k
 ## Understanding the problem
 We download the capstone dataset which consists of 3 text files containing respectively tweats, blogs and news text. The dataset covers 4 languages : English, Russian, Finish and German. Size of the dataset is around 600MB.
 
+## Familiarization with NLP
+As a first step toward working on this project, you should familiarize yourself with Natural Language Processing, Text Mining, and the associated tools in R. 
+
+### NLP wikipedia page
+*review of the [wikipedia page](https://en.wikipedia.org/wiki/Natural_language_processing)*
+
+### Text Mining
+*review of the [text mining in R](https://www.jstatsoft.org/article/view/v025i05)*
+
+### CRAN Text Processing resources
+*revidew of the [CRAN resources](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html)*
+
 ### how to load the dataset in R?
 
 
