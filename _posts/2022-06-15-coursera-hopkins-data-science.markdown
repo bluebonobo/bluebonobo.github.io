@@ -12,8 +12,12 @@ In partnership with a corporate partner Swiftkey, the goal is to build a smart k
 ## Familiarization with NLP
 As a first step toward working on this project, you should familiarize yourself with Natural Language Processing, Text Mining, and the associated tools in R. 
 
-### NLP wikipedia page
+### Natural Language Processing Wikipedia Page
 *review of the [wikipedia page](https://en.wikipedia.org/wiki/Natural_language_processing)*
+Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence concerned with the ==interactions between computers and human language==, in particular how to program computers to process and analyze large amounts of natural language data. The goal is ==a computer capable of "understanding" the contents of documents, including the contextual nuances of the language within them==. The technology can then accurately extract information and insights contained in the documents as well as categorize and organize the documents themselves.
+
+Challenges in natural language processing frequently involve ==speech recognition, natural-language understanding, and natural-language generation==.
+
 
 ### Text Mining
 *review of the [text mining in R](https://www.jstatsoft.org/article/view/v025i05)*
