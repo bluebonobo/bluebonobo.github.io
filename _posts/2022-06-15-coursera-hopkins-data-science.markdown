@@ -18,9 +18,18 @@ Natural language processing (NLP) is a subfield of linguistics, computer science
 
 Challenges in natural language processing frequently involve speech recognition, natural-language understanding, and natural-language generation.
 
+History of NLP : Symbolic NLP (1950-1990) (rule based), Statistical NLP (1990-2000), Neural NLP (2010-present)
+
 
 ### Text Mining
 *review of the [text mining in R](https://www.jstatsoft.org/article/view/v025i05)*
+THis paper present the tm package which provides a framework for text mining applications within R. 
+
+Preprocessing
+1. Data import
+2. Stemming : the process of erasing word suffixes to retrieve their radicals. It is a common technique used in text mining research, as it reduces complexity without any severe loss of information for typical applications (especially for bag-of-words).  
+3. Whitespace elimination : the removal of white space and the conversion to lower case. For both tasks tm provides transformations
+4. Stop Word removal : Stopwords are words that are so common in a language that their information value is almost zero, in other words their entropy is very low. Therefore it is usual to remove them before further analysis. 
 
 ### CRAN Text Processing resources
 *revidew of the [CRAN resources](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html)*
