@@ -67,7 +67,8 @@ I think that additional social media sources would benefit this project by intro
 -Domain-specific language
 -Low-resource languages
 
-6. What is the relationship between NLP and the concepts you have learned in the Specialization?   
+6. What is the relationship between NLP and the concepts you have learned in the Specialization? 
+Since the 80s, NLP has been relying on Statistical Methods, Machine Learning and Neural Network which are part of Data Science. Exploratory analkysis, intference, data products and practical Machine Learning concepts and courses of the specialization will be directly applied to the NLP capstone project.  
 
 
 ## Understanding the problem
