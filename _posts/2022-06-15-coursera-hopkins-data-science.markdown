@@ -52,12 +52,20 @@ The dataset is organized in 4 folders (1 folder per language), each folder conta
 The corpora are collected from publicly available sources by a web crawler. The crawler checks for language, so as to mainly get texts consisting of the desired language. Once the raw corpus has been collected, it is parsed further, to remove duplicate entries and split into individual lines. Approximately 50% of each entry is then deleted. 
 
 3. Can you think of any other data sources that might help you in this project?   
-I think that additional social media sources would benefit this project by introducing less formal language. I especially think that Reddit corpus would complement Twitter. I would also add a corpus of public domain books.
+I think that additional social media sources would benefit this project by introducing less formal language. I especially think that Reddit corpus. I would also add a corpus of public domain books. I would also add exommerce product reviews.
 
 4. What are the common steps in natural language processing?   
 >The five phases of NLP involve lexical (structure) analysis, syntactic analysis (parsing), semantic analysis (meaning), discourse integration, and pragmatic analysis. S
 
-5. What are some common issues in the analysis of text data?   
+5. What are some common issues in the analysis of text data? 
+-Contextual words and phrases and homonyms
+-Synonyms
+-Irony and sarcasm
+-Ambiguity
+-Errors in text or speech
+-Colloquialisms and slang
+-Domain-specific language
+-Low-resource languages
 
 6. What is the relationship between NLP and the concepts you have learned in the Specialization?   
 
