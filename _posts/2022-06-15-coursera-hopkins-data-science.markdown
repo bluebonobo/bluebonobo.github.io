@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Coursera Johns Hopkins Data Science Capstone"
+title:  "Coursera JHU Data Science Capstone"
 date:   2022-06-15 21:30:00 -0400
 categories: setup
 ---
@@ -10,8 +10,7 @@ In partnership with a corporate partner Swiftkey, the goal of the Capstone proje
 
 ## TASK 0 : Understanding the problem
 
-## Familiarization with NLP
-As a first step toward working on this project, you should familiarize yourself with Natural Language Processing, Text Mining, and the associated tools in R. 
+Familiarization with NLP : As a first step toward working on this project, we familiarize ourselves with Natural Language Processing, Text Mining, and the associated tools in R. 
 
 ### Natural Language Processing Wikipedia Page
 *review of the [wikipedia page](https://en.wikipedia.org/wiki/Natural_language_processing)*   
