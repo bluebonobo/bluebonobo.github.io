@@ -9,15 +9,15 @@ The Coursera Johns Hopkins Data Science specialization calls for submission of v
 
 # Developing with R
 
-## Knitr to pdf
+Knitr to pdf
 
-## Knitr to html and push to github page as static html
+Knitr to html and push to github page as static html
 
-## Slidify
+Slidify
 
-## Github and Jekyll for public blog
+Github and Jekyll for public blog
 
 
 # Developing with Pyhton
 
-## ipynb
+ipynb

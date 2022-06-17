@@ -4,7 +4,7 @@ title:  "Coursera JHU Data Science Capstone"
 date:   2022-06-15 21:30:00 -0400
 categories: setup
 ---
-The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here the process, resources, artefacts and submission for the cpastone project. See details [here](https://www.coursera.org/learn/data-science-project)
+The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here my journey, the process, resources, artefacts and submission for the capstone project. See details [here](https://www.coursera.org/learn/data-science-project)
 
 In partnership with a corporate partner Swiftkey, the goal of the Capstone project is to build a smart keyboard that makes it easier for people to type. One cornerstone of their smart keyboard is predictive text models (equivalent to autofill for next word). Developing basic understanding of Natural Language processing and Text Mining is required
 
