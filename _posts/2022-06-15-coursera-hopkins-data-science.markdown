@@ -58,14 +58,14 @@ I think that additional social media sources would benefit this project by intro
 >The five phases of NLP involve lexical (structure) analysis, syntactic analysis (parsing), semantic analysis (meaning), discourse integration, and pragmatic analysis. S
 
 5. What are some common issues in the analysis of text data? 
--Contextual words and phrases and homonyms
--Synonyms
--Irony and sarcasm
--Ambiguity
--Errors in text or speech
--Colloquialisms and slang
--Domain-specific language
--Low-resource languages
+- Contextual words and phrases and homonyms
+- Synonyms
+- Irony and sarcasm
+- Ambiguity
+- Errors in text or speech
+- Colloquialisms and slang
+- Domain-specific language
+- Low-resource languages
 
 6. What is the relationship between NLP and the concepts you have learned in the Specialization? 
 Since the 80s, NLP has been relying on Statistical Methods, Machine Learning and Neural Network which are part of Data Science. Exploratory analkysis, intference, data products and practical Machine Learning concepts and courses of the specialization will be directly applied to the NLP capstone project.  
