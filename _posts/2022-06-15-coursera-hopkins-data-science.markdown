@@ -49,9 +49,16 @@ Applications
 The dataset is organized in 4 folders (1 folder per language), each folder contains 3 files of text (.txt extension). Each file has a different media source (blog, news and twitter). Each file is around 75Mb.
 
 2. Where do the data come from?
+The corpora are collected from publicly available sources by a web crawler. The crawler checks for language, so as to mainly get texts consisting of the desired language. Once the raw corpus has been collected, it is parsed further, to remove duplicate entries and split into individual lines. Approximately 50% of each entry is then deleted. 
+
 3. Can you think of any other data sources that might help you in this project?
+I think that additional social media sources would benefit this project by introducing less formal language. I especially think that Reddit corpus would complement Twitter. I would also add a corpus of public domain books.
+
 4. What are the common steps in natural language processing?
+>The five phases of NLP involve lexical (structure) analysis, syntactic analysis (parsing), semantic analysis (meaning), discourse integration, and pragmatic analysis. S
+
 5. What are some common issues in the analysis of text data?
+
 6. What is the relationship between NLP and the concepts you have learned in the Specialization?
 
 
