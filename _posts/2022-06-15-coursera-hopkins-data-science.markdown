@@ -41,9 +41,6 @@ Applications
 ### CRAN Text Processing resources
 *revidew of the [CRAN resources](https://cran.r-project.org/web/views/NaturalLanguageProcessing.html)*
 
-### how to load the dataset in R?
-
-
 ### Questions to consider
 
 1. What do the data look like?   
@@ -66,10 +63,16 @@ I think that additional social media sources would benefit this project by intro
 - Errors in text or speech
 - Colloquialisms and slang
 - Domain-specific language
-- Low-resource languages
+- Low-resource languages   
 
 6. What is the relationship between NLP and the concepts you have learned in the Specialization? 
 Since the 80s, NLP has been relying on Statistical Methods, Machine Learning and Neural Network which are part of Data Science. Exploratory analkysis, intference, data products and practical Machine Learning concepts and courses of the specialization will be directly applied to the NLP capstone project.  
+
+7. how to load the dataset in R?
+
+
+
+## TASK 1 : Getting and Cleaning the data
 
 
 
