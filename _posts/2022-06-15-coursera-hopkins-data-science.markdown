@@ -46,6 +46,8 @@ Applications
 ### Questions to consider
 
 1. What do the data look like?
+The dataset is organized in 4 folders (1 folder per language), each folder contains 3 files of text (.txt extension). Each file has a different media source (blog, news and twitter). Each file is around 75Mb.
+
 2. Where do the data come from?
 3. Can you think of any other data sources that might help you in this project?
 4. What are the common steps in natural language processing?
