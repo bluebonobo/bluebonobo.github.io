@@ -10,7 +10,7 @@ In partnership with a corporate partner Swiftkey, the goal of the Capstone proje
 
 ## TASK 0 : Understanding the problem
 
-Familiarization with NLP : As a first step toward working on this project, we familiarize ourselves with Natural Language Processing, Text Mining, and the associated tools in R. 
+>Familiarization with NLP : As a first step toward working on this project, we familiarize ourselves with Natural Language Processing, Text Mining, and the associated tools in R. 
 
 ### Natural Language Processing Wikipedia Page
 *review of the [wikipedia page](https://en.wikipedia.org/wiki/Natural_language_processing)*   
@@ -72,6 +72,13 @@ Since the 80s, NLP has been relying on Statistical Methods, Machine Learning and
 
 
 ## TASK 1 : Getting and Cleaning the data
+
+>Tasks to accomplish
+
+>1. Tokenization - identifying appropriate tokens such as words, punctuation, and numbers. Writing a function that takes a file as input and returns a tokenized version of it.   
+>2. Profanity filtering - removing profanity and other words you do not want to predict.
+
+
 
 
 
