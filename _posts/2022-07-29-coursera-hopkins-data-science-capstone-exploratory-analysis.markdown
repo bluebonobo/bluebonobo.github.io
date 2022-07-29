@@ -18,18 +18,18 @@ For each file in the english language (blogs, news and twitter), we build a VCor
 
 We show the top 10 words and a wordcloud for each file below.
 
-Blogs File Analysis
+### Blogs File Analysis
 The Sample Blogs file we are going to analyze consists of 899288 lines and 364816 terms.
 
 ![top10Blogs](/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10BlogTerms.png){:class="img-responsive" :width="25%"}
 
-News File Analysis
+### News File Analysis
 The Sample Blogs file we are going to analyze consists of 1010242 lines and 271382 terms.
+![top10News](/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10NewsTerms.png){:class="img-responsive" :width="25%"}
 
-
-
-Twitter File Analysis
+### Twitter File Analysis
 The Sample Blogs file we are going to analyze consists of 2360148 lines and 388357 terms.
+![top10Twitter](/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10TwitterTerms.png){:class="img-responsive" :width="25%"}
 
 
 
