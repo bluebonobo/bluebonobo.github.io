@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Coursera JHU Data Science Capstone"
+title:  "Coursera JHU Data Science Capstone Introduction"
 date:   2022-06-15 21:30:00 -0400
 categories: setup
 ---
