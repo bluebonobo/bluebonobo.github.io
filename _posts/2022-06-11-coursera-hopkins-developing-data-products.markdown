@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Developing data products"
+title:  "Coursera JHU Data Science Developing Data Products"
 date:   2022-06-11 09:30:00 -0400
 categories: R
 ---
@@ -19,5 +19,9 @@ Github and Jekyll for public blog
 
 
 # Developing with Pyhton
+
+ipynb
+
+# Building a Shiny Application 
 
 ipynb
