@@ -25,6 +25,6 @@ The Sample Blogs file we are going to analyze consists of **899288** lines and *
 
 ### The Presentation
 
-The Sample Blogs file we are going to analyze consists of **1010242** lines and **271382** terms.
-![top10News](/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10NewsTerms.png){:class="img-responsive" :width="25%"}
+The pitch presentation can be found in Rpubs .
+[here](https://rpubs.com/bluebonobo/capstoneproject){:class="img-responsive" :width="25%"}
 
