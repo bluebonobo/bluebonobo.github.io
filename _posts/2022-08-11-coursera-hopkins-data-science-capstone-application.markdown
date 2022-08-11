@@ -8,7 +8,7 @@ The Coursera Johns Hopkins Data Science specialization consists of 9 courses fol
 
 This page presents the model used to deliver the Next Word Application
 
-## Application
+## Application   a
 The Sample Blogs file we are going to analyze consists of **899288** lines and **364816** terms.
 
 [Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/)
