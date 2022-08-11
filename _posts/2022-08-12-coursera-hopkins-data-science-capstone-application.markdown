@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Coursera JHU Data Science Capstone Application"
-date:   2022-08-11 18:00:00 -0400
+date:   2022-08-12 01:00:00 -0400
 categories: setup
 ---
 The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here my journey, the process, resources, artefacts and submission for the capstone project. See details [here](https://www.coursera.org/learn/data-science-project)
