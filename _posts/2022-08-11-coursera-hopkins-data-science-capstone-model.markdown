@@ -21,7 +21,7 @@ We show the top 10 words and a wordcloud for each file below.
 ### Application
 The Sample Blogs file we are going to analyze consists of **899288** lines and **364816** terms.
 
-[Shiny Application](/https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/){:class="img-responsive" :width="25%"}
+[Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/){:class="img-responsive" :width="25%"}
 
 ### The Presentation
 
