@@ -11,10 +11,11 @@ This page presents the model used to deliver the Next Word Application
 ## Application
 The Sample Blogs file we are going to analyze consists of **899288** lines and **364816** terms.
 
-[Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/){:class="img-responsive" :width="25%"}
+[Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/)
+
+![homepage](https://raw.githubusercontent.com/bluebonobo/coursera_hopkins_capstoneproject/main/shinyapp/CapstoneShinyApp/WWW/homepage.png){:class="img-responsive" :width="25%"}
 
 ## The Presentation
 
 The pitch presentation can be found in Rpubs .
-[here](https://rpubs.com/bluebonobo/capstoneproject){:class="img-responsive" :width="25%"}
-
+[here](https://rpubs.com/bluebonobo/capstoneproject)
