@@ -18,7 +18,7 @@ For each file in the english language (blogs, news and twitter), we build a VCor
 
 We show the top 10 words and a wordcloud for each file below.
 
-### Application - do new page here
+### Application - do new page here. another update
 The Sample Blogs file we are going to analyze consists of **899288** lines and **364816** terms.
 
 [Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/){:class="img-responsive" :width="25%"}
