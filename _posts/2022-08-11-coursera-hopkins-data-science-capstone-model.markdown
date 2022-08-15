@@ -16,8 +16,6 @@ This page presents the model used to deliver the Next Word Application
 
 For each file in the english language (blogs, news and twitter), we build a VCorpus object, we clean the VCorpus by removing whitepaces, convert all to lower case, remove English stop words, remove punctuation, remove numbers, remove profanity and stem. We then tokenzie and finally create a DocumentTermMatrix.
 
-We show the top 10 words and a wordcloud for each file below.
-
 To build the model, we use a corpus of blogs, news and twitter entires provided as part of the assignment.
 
 We have cleaned up the blogs, news and twitter entries to remove stop words, profanity
