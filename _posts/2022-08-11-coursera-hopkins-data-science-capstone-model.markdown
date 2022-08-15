@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Coursera JHU Data Science Capstone Models"
+title:  "Coursera JHU Data Science Capstone Model and Algorithm"
 date:   2022-08-11 15:00:00 -0400
 categories: setup
 ---
@@ -18,13 +18,19 @@ For each file in the english language (blogs, news and twitter), we build a VCor
 
 We show the top 10 words and a wordcloud for each file below.
 
-### Application - do new page here. another update
-The Sample Blogs file we are going to analyze consists of **899288** lines and **364816** terms.
+To build the model, we use a corpus of blogs, news and twitter entires provided as part of the assignment.
 
-[Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/){:class="img-responsive" :width="25%"}
+We have cleaned up the blogs, news and twitter entries to remove stop words, profanity
 
-### The Presentation
+## The Model 
 
-The pitch presentation can be found in Rpubs .
-[here](https://rpubs.com/bluebonobo/capstoneproject){:class="img-responsive" :width="25%"}
+The text resources are loaded in a VCorpus object which is then tokenized. We tokenize the corpus in bigrams, trigrams and 4grams
+We then build a DocumentTerm Matrix and calculate frequencies of each gram
+The model is statistical based on a n-grams approach see this article or this article
 
+Useful readings on ngrams model can be found in [this article](https://towardsai.net/p/nlp/how-do-language-models-predict-the-next-word) and [this article2](https://towardsdatascience.com/sentence-generation-with-n-gram-21a5eef36a1b)
+
+## The Algorithm
+
+Given the number of words in the input text, we look up the most frequent bigram, trigram or 4gram.
+If the ngram lookup does not return a match, we call the (n-1)gram lookup. This strategy is refered to as backoff. Meaning the highest order ngram lookup is called and if no match is identified, the algorithm backs off to the next lower order ngram and so on.

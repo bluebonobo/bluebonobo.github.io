@@ -6,16 +6,17 @@ categories: setup
 ---
 The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here my journey, the process, resources, artefacts and submission for the capstone project. See details [here](https://www.coursera.org/learn/data-science-project)
 
-This page presents the model used to deliver the Next Word Application
 
-## Application   a
-The Sample Blogs file we are going to analyze consists of **899288** lines and **364816** terms.
+## Application  
+The [Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/) developed for the Capstone assignment predicts the next word in a sentence. The application is written in R using Shiny framework. The application is deplopyed on the ShinyApp.io 
 
-[Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/)
+The user enters a series of word and the model predicts the next word using a Natural Language Statistical Model. The user interface is shown below. A documentation tab presents the content also available in this presentation
 
-![homepage](https://raw.githubusercontent.com/bluebonobo/coursera_hopkins_capstoneproject/main/shinyapp/CapstoneShinyApp/WWW/homepage.png){:class="img-responsive" :width="25%"}
+The application is deployed on ShinyApp.io, a Shiny application hosting service provided by RStudio. Note that in order to deploy the application on ShinyApps.io using a free subscription, I had to reduce the size of the ngrams files. To do so I built the ngrams files on a sample corpus as the full ngrams files would create a out of memory error when running on ShinyApps.io. This error is widely reported in the forums and most students worked around this by using sample corpus. The complete .rds ngrams files can be found in my github repository
+
+
+**screenshot homepage** ![home](https://raw.githubusercontent.com/bluebonobo/coursera_hopkins_capstoneproject/main/shinyapp/CapstoneShinyApp/WWW/homepage.png){:class="img-responsive" :width="25%"}
 
 ## The Presentation
 
-The pitch presentation can be found in Rpubs .
-[here](https://rpubs.com/bluebonobo/capstoneproject)
+The slidify presentation required for the project completion can be found in Rpubs [here](https://rpubs.com/bluebonobo/capstoneproject)
