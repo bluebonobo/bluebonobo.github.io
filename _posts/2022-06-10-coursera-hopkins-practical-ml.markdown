@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JHU Coursera Practical Machine Learning"
+title:  "Coursera JHU Practical Machine Learning"
 date:   2022-06-10 09:30:00 -0400
 categories: setup
 ---
