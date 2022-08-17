@@ -3,7 +3,7 @@
 .site-title::before {
     content: url("/assets/mini_logo.png");
     display: inline-block;
-    position: relative;
+    position: sticky;
     width: 16px;
     top: 16px;
     }
