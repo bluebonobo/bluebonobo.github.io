@@ -5,7 +5,7 @@ date:   2022-08-11 15:00:00 -0400
 categories: setup
 ---
 
-This page presents the model used to deliver the Next Word Application
+This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project. 
 
 ## NGrams and Backoff strategy
 
