@@ -4,10 +4,7 @@ title:  "Coursera JHU Data Science Capstone Application "
 date:   2022-08-11 23:00:00 -0400
 categories: setup
 ---
-The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here my journey, the process, resources, artefacts and submission for the capstone project. See details [here](https://www.coursera.org/learn/data-science-project)
 
-
-## Application  
 The [Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/) developed for the Capstone assignment predicts the next word in a sentence. The application is written in R using Shiny framework. The application is deplopyed on the ShinyApp.io 
 
 The user enters a series of word and the model predicts the next word using a Natural Language Statistical Model. The user interface is shown below. A documentation tab presents the content also available in this presentation
