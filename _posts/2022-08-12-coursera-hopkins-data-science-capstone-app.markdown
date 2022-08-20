@@ -7,7 +7,7 @@ categories: setup
 
 The [Shiny Application](https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/) developed for the Capstone assignment predicts the next word in a sentence. The application is written in R using Shiny framework. The application is deplopyed on the ShinyApp.io 
 
-The user enters a series of word and the model predicts the next word using a Natural Language Statistical Model. The user interface is shown below. A documentation tab presents the content also available in this presentation
+The user enters a series of word and the model predicts the next word using a Natural Language Statistical Model. The user interface is shown below. A documentation tab presents the content also available in this presentation.
 
 The application is deployed on ShinyApp.io, a Shiny application hosting service provided by RStudio. Note that in order to deploy the application on ShinyApps.io using a free subscription, I had to reduce the size of the ngrams files. To do so I built the ngrams files based on a sample corpus as the full ngrams files would create a out of memory error when running on ShinyApps.io. This error is widely reported in the forums and most students worked around this by using sample corpus. The complete .rds ngrams files can be found in my [github repository](https://github.com/bluebonobo/coursera_hopkins_capstoneproject)
 
