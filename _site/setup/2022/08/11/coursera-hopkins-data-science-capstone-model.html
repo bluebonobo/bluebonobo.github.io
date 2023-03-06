@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Coursera JHU Data Science Capstone Model and Algorithm | Blue Bonobo</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Coursera JHU Data Science Capstone Model and Algorithm" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project." />
+<meta property="og:description" content="This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project." />
+<link rel="canonical" href="http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html" />
+<meta property="og:url" content="http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html" />
+<meta property="og:site_name" content="Blue Bonobo" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-11T15:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Coursera JHU Data Science Capstone Model and Algorithm" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-08-11T15:00:00-04:00","datePublished":"2022-08-11T15:00:00-04:00","description":"This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project.","headline":"Coursera JHU Data Science Capstone Model and Algorithm","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html"},"url":"http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blue Bonobo" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blue Bonobo</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Coursera JHU Data Science Capstone Model and Algorithm</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-08-11T15:00:00-04:00" itemprop="datePublished">Aug 11, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project.</p>
+
+<h2 id="ngrams-and-backoff-strategy">NGrams and Backoff strategy</h2>
+
+<p><em>What are Ngrams : fan n-gram is a contiguous sequence of n items from a given sample of text or speech.</em></p>
+
+<p><em>What is the backoff strategy : an n-gram is a contiguous sequence of n items from a given sample of text or speech.</em></p>
+
+<p>For each file in the english language (blogs, news and twitter), we build a VCorpus object, we clean the VCorpus by removing whitepaces, convert all to lower case, remove English stop words, remove punctuation, remove numbers, remove profanity and stem. We then tokenzie and finally create a DocumentTermMatrix.</p>
+
+<p>To build the model, we use a corpus of blogs, news and twitter entires provided as part of the assignment.</p>
+
+<p>We have cleaned up the blogs, news and twitter entries to remove stop words, profanity</p>
+
+<h2 id="the-model">The Model</h2>
+
+<p>The text resources are loaded in a VCorpus object which is then tokenized. We tokenize the corpus in bigrams, trigrams and 4grams
+We then build a DocumentTerm Matrix and calculate frequencies of each gram
+The model is statistical based on a n-grams approach see this article or this article</p>
+
+<p>Useful readings on ngrams model can be found in <a href="https://towardsai.net/p/nlp/how-do-language-models-predict-the-next-word">this article</a> and <a href="https://towardsdatascience.com/sentence-generation-with-n-gram-21a5eef36a1b">this article2</a></p>
+
+<h2 id="the-algorithm">The Algorithm</h2>
+
+<p>Given the number of words in the input text, we look up the most frequent bigram, trigram or 4gram.
+If the ngram lookup does not return a match, we call the (n-1)gram lookup. This strategy is refered to as backoff. Meaning the highest order ngram lookup is called and if no match is identified, the algorithm backs off to the next lower order ngram and so on.</p>
+
+  </div><a class="u-url" href="/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blue Bonobo</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blue Bonobo</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bluebonobo"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bluebonobo</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Portfolio and Notes taken while working on topics I like. It includes data science, astrophysics, ed tech, fin tech, navigation systems, sailing, electronic music, adventure and more....</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

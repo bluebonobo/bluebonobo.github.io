@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-24T11:41:25-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Blue Bonobo</title><subtitle>Portfolio and Notes taken while working on topics I like. It includes data science, astrophysics, ed tech, fin tech, navigation systems, sailing, electronic music, adventure and more....</subtitle><entry><title type="html">Coursera JHU Data Science Capstone Application</title><link href="http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-app.html" rel="alternate" type="text/html" title="Coursera JHU Data Science Capstone Application" /><published>2022-08-11T23:00:00-04:00</published><updated>2022-08-11T23:00:00-04:00</updated><id>http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-app</id><content type="html" xml:base="http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-app.html">&lt;p&gt;The &lt;a href=&quot;https://bluebonobo.shinyapps.io/CapstoneProjectShinyApp/&quot;&gt;Shiny Application&lt;/a&gt; developed for the Capstone assignment predicts the next word in a sentence. The application is written in R using Shiny framework. The application is deplopyed on the ShinyApp.io&lt;/p&gt;
+
+&lt;p&gt;The user enters a series of word and the model predicts the next word using a Natural Language Statistical Model. The user interface is shown below. A documentation tab presents the content also available in this presentation.&lt;/p&gt;
+
+&lt;p&gt;The application is deployed on ShinyApp.io, a Shiny application hosting service provided by RStudio. Note that in order to deploy the application on ShinyApps.io using a free subscription, I had to reduce the size of the ngrams files. To do so I built the ngrams files based on a sample corpus as the full ngrams files would create a out of memory error when running on ShinyApps.io. This error is widely reported in the forums and most students worked around this by using sample corpus. The complete .rds ngrams files can be found in my &lt;a href=&quot;https://github.com/bluebonobo/coursera_hopkins_capstoneproject&quot;&gt;github repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;screenshot homepage&lt;/strong&gt; &lt;img src=&quot;https://raw.githubusercontent.com/bluebonobo/coursera_hopkins_capstoneproject/main/shinyapp/CapstoneShinyApp/WWW/homepage.png&quot; alt=&quot;home&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-presentation&quot;&gt;The Presentation&lt;/h2&gt;
+
+&lt;p&gt;The slidify presentation required for the project completion can be found in Rpubs &lt;a href=&quot;https://rpubs.com/bluebonobo/capstoneproject&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="setup" /><summary type="html">The Shiny Application developed for the Capstone assignment predicts the next word in a sentence. The application is written in R using Shiny framework. The application is deplopyed on the ShinyApp.io</summary></entry><entry><title type="html">Coursera JHU Data Science Capstone Model and Algorithm</title><link href="http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html" rel="alternate" type="text/html" title="Coursera JHU Data Science Capstone Model and Algorithm" /><published>2022-08-11T15:00:00-04:00</published><updated>2022-08-11T15:00:00-04:00</updated><id>http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model</id><content type="html" xml:base="http://localhost:4000/setup/2022/08/11/coursera-hopkins-data-science-capstone-model.html">&lt;p&gt;This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project.&lt;/p&gt;
+
+&lt;h2 id=&quot;ngrams-and-backoff-strategy&quot;&gt;NGrams and Backoff strategy&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;What are Ngrams : fan n-gram is a contiguous sequence of n items from a given sample of text or speech.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;What is the backoff strategy : an n-gram is a contiguous sequence of n items from a given sample of text or speech.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;For each file in the english language (blogs, news and twitter), we build a VCorpus object, we clean the VCorpus by removing whitepaces, convert all to lower case, remove English stop words, remove punctuation, remove numbers, remove profanity and stem. We then tokenzie and finally create a DocumentTermMatrix.&lt;/p&gt;
+
+&lt;p&gt;To build the model, we use a corpus of blogs, news and twitter entires provided as part of the assignment.&lt;/p&gt;
+
+&lt;p&gt;We have cleaned up the blogs, news and twitter entries to remove stop words, profanity&lt;/p&gt;
+
+&lt;h2 id=&quot;the-model&quot;&gt;The Model&lt;/h2&gt;
+
+&lt;p&gt;The text resources are loaded in a VCorpus object which is then tokenized. We tokenize the corpus in bigrams, trigrams and 4grams
+We then build a DocumentTerm Matrix and calculate frequencies of each gram
+The model is statistical based on a n-grams approach see this article or this article&lt;/p&gt;
+
+&lt;p&gt;Useful readings on ngrams model can be found in &lt;a href=&quot;https://towardsai.net/p/nlp/how-do-language-models-predict-the-next-word&quot;&gt;this article&lt;/a&gt; and &lt;a href=&quot;https://towardsdatascience.com/sentence-generation-with-n-gram-21a5eef36a1b&quot;&gt;this article2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-algorithm&quot;&gt;The Algorithm&lt;/h2&gt;
+
+&lt;p&gt;Given the number of words in the input text, we look up the most frequent bigram, trigram or 4gram.
+If the ngram lookup does not return a match, we call the (n-1)gram lookup. This strategy is refered to as backoff. Meaning the highest order ngram lookup is called and if no match is identified, the algorithm backs off to the next lower order ngram and so on.&lt;/p&gt;</content><author><name></name></author><category term="setup" /><summary type="html">This page presents the model used to deliver the Next Word Application. We will first review the NGram NLP model approach and the backoff strategy used for this project.</summary></entry><entry><title type="html">Coursera JHU Data Science Capstone Exploratory Analysis</title><link href="http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html" rel="alternate" type="text/html" title="Coursera JHU Data Science Capstone Exploratory Analysis" /><published>2022-07-29T15:00:00-04:00</published><updated>2022-07-29T15:00:00-04:00</updated><id>http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis</id><content type="html" xml:base="http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html">&lt;p&gt;In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods. This page presents the results of the exploratory data analysis phase of the JHU Coursera Capstone project.&lt;/p&gt;
+
+&lt;h2 id=&quot;exploratory-data-analysis&quot;&gt;Exploratory data analysis&lt;/h2&gt;
+
+&lt;p&gt;For each file in the english language (blogs, news and twitter), we build a VCorpus object, we clean the VCorpus by removing whitepaces, convert all to lower case, remove English stop words, remove punctuation, remove numbers, remove profanity and stem. We then tokenzie and finally create a DocumentTermMatrix.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;full analysis has been posted on Rpubs &lt;a href=&quot;https://rpubs.com/bluebonobo/capstone_project_week2&quot;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We show the top 10 words and a wordcloud for each file below.&lt;/p&gt;
+
+&lt;h3 id=&quot;blogs-file-analysis&quot;&gt;Blogs File Analysis&lt;/h3&gt;
+&lt;p&gt;The Sample Blogs file we are going to analyze consists of &lt;strong&gt;899288&lt;/strong&gt; lines and &lt;strong&gt;364816&lt;/strong&gt; terms.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10BlogTerms.png&quot; alt=&quot;top10Blogs&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;news-file-analysis&quot;&gt;News File Analysis&lt;/h3&gt;
+&lt;p&gt;The Sample Blogs file we are going to analyze consists of &lt;strong&gt;1010242&lt;/strong&gt; lines and &lt;strong&gt;271382&lt;/strong&gt; terms.
+&lt;img src=&quot;/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10NewsTerms.png&quot; alt=&quot;top10News&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter-file-analysis&quot;&gt;Twitter File Analysis&lt;/h3&gt;
+&lt;p&gt;The Sample Blogs file we are going to analyze consists of &lt;strong&gt;2360148&lt;/strong&gt; lines and &lt;strong&gt;388357&lt;/strong&gt; terms.
+&lt;img src=&quot;/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10TwitterTerms.png&quot; alt=&quot;top10Twitter&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="setup" /><summary type="html">In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods. This page presents the results of the exploratory data analysis phase of the JHU Coursera Capstone project.</summary></entry><entry><title type="html">Coursera JHU Data Science Capstone Introduction</title><link href="http://localhost:4000/setup/2022/06/15/coursera-hopkins-data-science.html" rel="alternate" type="text/html" title="Coursera JHU Data Science Capstone Introduction" /><published>2022-06-15T21:30:00-04:00</published><updated>2022-06-15T21:30:00-04:00</updated><id>http://localhost:4000/setup/2022/06/15/coursera-hopkins-data-science</id><content type="html" xml:base="http://localhost:4000/setup/2022/06/15/coursera-hopkins-data-science.html">&lt;p&gt;The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here my journey, the process, resources, artefacts and submission for the capstone project. See details &lt;a href=&quot;https://www.coursera.org/learn/data-science-project&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In partnership with a corporate partner Swiftkey, the goal of the Capstone project is to build a smart keyboard that makes it easier for people to type. One cornerstone of their smart keyboard is predictive text models (equivalent to autofill for next word). Developing basic understanding of Natural Language processing and Text Mining is required&lt;/p&gt;
+
+&lt;h2 id=&quot;task-0--understanding-the-problem&quot;&gt;TASK 0 : Understanding the problem&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Familiarization with NLP : As a first step toward working on this project, we familiarize ourselves with Natural Language Processing, Text Mining, and the associated tools in R.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;natural-language-processing-wikipedia-page&quot;&gt;Natural Language Processing Wikipedia Page&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;review of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Natural_language_processing&quot;&gt;wikipedia page&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence concerned with the interactions between computers and human language, in particular how to program computers to process and analyze large amounts of natural language data. The goal is a computer capable of “understanding” the contents of documents, including the contextual nuances of the language within them. The technology can then accurately extract information and insights contained in the documents as well as categorize and organize the documents themselves.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Challenges in natural language processing frequently involve speech recognition, natural-language understanding, and natural-language generation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;History of NLP : Symbolic NLP (1950-1990) (rule based), Statistical NLP (1990-2000), Neural NLP (2010-present)&lt;/p&gt;
+
+&lt;h3 id=&quot;text-mining&quot;&gt;Text Mining&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;review of the &lt;a href=&quot;https://www.jstatsoft.org/article/view/v025i05&quot;&gt;text mining in R&lt;/a&gt;&lt;/em&gt;
+THis paper present the tm package which provides a framework for text mining applications within R.&lt;/p&gt;
+
+&lt;p&gt;Preprocessing&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Data import&lt;/li&gt;
+  &lt;li&gt;Stemming : the process of erasing word suffixes to retrieve their radicals. It is a common technique used in text mining research, as it reduces complexity without any severe loss of information for typical applications (especially for bag-of-words).&lt;/li&gt;
+  &lt;li&gt;Whitespace elimination : the removal of white space and the conversion to lower case. For both tasks tm provides transformations&lt;/li&gt;
+  &lt;li&gt;Stop Word removal : Stopwords are words that are so common in a language that their information value is almost zero, in other words their entropy is very low. Therefore it is usual to remove them before further analysis.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Applications&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Count based evluation&lt;/li&gt;
+  &lt;li&gt;Simple text clustering&lt;/li&gt;
+  &lt;li&gt;Simple text classification&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;cran-text-processing-resources&quot;&gt;CRAN Text Processing resources&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;revidew of the &lt;a href=&quot;https://cran.r-project.org/web/views/NaturalLanguageProcessing.html&quot;&gt;CRAN resources&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;questions-to-consider&quot;&gt;Questions to consider&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;What do the data look like? &lt;br /&gt;
+The dataset is organized in 4 folders (1 folder per language), each folder contains 3 files of text (.txt extension). Each file has a different media source (blog, news and twitter). Each file is around 75Mb.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Where do the data come from? &lt;br /&gt;
+The corpora are collected from publicly available sources by a web crawler. The crawler checks for language, so as to mainly get texts consisting of the desired language. Once the raw corpus has been collected, it is parsed further, to remove duplicate entries and split into individual lines. Approximately 50% of each entry is then deleted.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Can you think of any other data sources that might help you in this project? &lt;br /&gt;
+I think that additional social media sources would benefit this project by introducing less formal language. I especially think that Reddit corpus. I would also add a corpus of public domain books. I would also add exommerce product reviews.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What are the common steps in natural language processing?
+    &lt;blockquote&gt;
+      &lt;p&gt;The five phases of NLP involve lexical (structure) analysis, syntactic analysis (parsing), semantic analysis (meaning), discourse integration, and pragmatic analysis. S&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What are some common issues in the analysis of text data?
+    &lt;ul&gt;
+      &lt;li&gt;Contextual words and phrases and homonyms&lt;/li&gt;
+      &lt;li&gt;Synonyms&lt;/li&gt;
+      &lt;li&gt;Irony and sarcasm&lt;/li&gt;
+      &lt;li&gt;Ambiguity&lt;/li&gt;
+      &lt;li&gt;Errors in text or speech&lt;/li&gt;
+      &lt;li&gt;Colloquialisms and slang&lt;/li&gt;
+      &lt;li&gt;Domain-specific language&lt;/li&gt;
+      &lt;li&gt;Low-resource languages&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;What is the relationship between NLP and the concepts you have learned in the Specialization? 
+Since the 80s, NLP has been relying on Statistical Methods, Machine Learning and Neural Network which are part of Data Science. Exploratory analkysis, intference, data products and practical Machine Learning concepts and courses of the specialization will be directly applied to the NLP capstone project.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;how to load the dataset in R?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;task-1--getting-and-cleaning-the-data&quot;&gt;TASK 1 : Getting and Cleaning the data&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tasks to accomplish&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Tokenization - identifying appropriate tokens such as words, punctuation, and numbers. Writing a function that takes a file as input and returns a tokenized version of it.&lt;/li&gt;
+    &lt;li&gt;Profanity filtering - removing profanity and other words you do not want to predict.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><category term="setup" /><summary type="html">The Coursera Johns Hopkins Data Science specialization consists of 9 courses followed by a capstone project. I describe here my journey, the process, resources, artefacts and submission for the capstone project. See details here</summary></entry><entry><title type="html">Coursera JHU Data Science Developing Data Products</title><link href="http://localhost:4000/r/2022/06/11/coursera-hopkins-developing-data-products.html" rel="alternate" type="text/html" title="Coursera JHU Data Science Developing Data Products" /><published>2022-06-11T09:30:00-04:00</published><updated>2022-06-11T09:30:00-04:00</updated><id>http://localhost:4000/r/2022/06/11/coursera-hopkins-developing-data-products</id><content type="html" xml:base="http://localhost:4000/r/2022/06/11/coursera-hopkins-developing-data-products.html">&lt;p&gt;In this course, we are looking at ways and formats available to present data science analysis and presentations. These are refered to as Data Products. The course exclusively uses the R language and R Studio plateform. Additionaly, We also describe how python and jupyter are used to produce data products&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A data product is the production output from a statistical analysis. Data products automate complex analysis tasks or use technology to expand the utility of a data informed model, algorithm or inference. This course covers the basics of creating data products using Shiny, R packages, and interactive graphics. The course will focus on the fundamentals of creating a data product that can be used to tell a story about data to a mass audience.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;assignement-and-deliverable&quot;&gt;Assignement and deliverable&lt;/h2&gt;
+
+&lt;p&gt;The course can be found &lt;a href=&quot;https://www.coursera.org/learn/data-products&quot;&gt;here&lt;/a&gt;. The shiny application developed can be found &lt;a href=&quot;https://bluebonobo.shinyapps.io/week4shinyapp/&quot;&gt;here&lt;/a&gt;. It is hosted by RStudio on shinyapps.io&lt;/p&gt;
+
+&lt;p&gt;Course content&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Shiny, rCharts, manipulate, googleVis&lt;/li&gt;
+  &lt;li&gt;Presenting data analysis, slidify, R Studio presenter.&lt;/li&gt;
+  &lt;li&gt;Students creating and deploying their projects&lt;/li&gt;
+  &lt;li&gt;Creating R packages, classes and methods.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;developing-with-r&quot;&gt;Developing with R&lt;/h2&gt;
+
+&lt;p&gt;I have used &lt;a href=&quot;www.rstudio.com&quot;&gt;RStudio&lt;/a&gt; to develop and run and publish R artifacts.&lt;/p&gt;
+
+&lt;h3 id=&quot;knitr&quot;&gt;Knitr&lt;/h3&gt;
+&lt;p&gt;knitr is an engine for dynamic report generation with R. It is a package in the programming language R that enables integration of R code into Pdf, LaTeX, LyX, HTML, Markdown, AsciiDoc, and reStructuredText documents. The purpose of knitr is to allow reproducible research in R through the means of literate programming. It is similar in purpose and funtion to Jupyter&lt;/p&gt;
+
+&lt;p&gt;Knitr-generated HTML can be published in Github and set as Github Pages for rendered/public access. and Jekyll for public blog&lt;/p&gt;
+
+&lt;h3 id=&quot;shiny-application&quot;&gt;Shiny Application&lt;/h3&gt;
+&lt;p&gt;Building a Shiny Appication&lt;/p&gt;
+
+&lt;h3 id=&quot;slidify&quot;&gt;Slidify&lt;/h3&gt;
+&lt;p&gt;Hosting/publishing presentations on RPubs&lt;/p&gt;
+
+&lt;h2 id=&quot;developing-with-pyhton&quot;&gt;Developing with Pyhton&lt;/h2&gt;
+
+&lt;h3 id=&quot;locally&quot;&gt;Locally&lt;/h3&gt;
+&lt;p&gt;I found that installing Jupyter Extension on VSCode and running the notebook directly on VSCode is appropriate&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.jupyter.org&quot;&gt;Jupyter Notebook&lt;/a&gt;: The Classic Notebook Interface. The Jupyter Notebook is the original web application for creating and sharing computational documents. It offers a simple, streamlined, document-centric experience. IDE runs locally and generates ipynb files. VSCode Jupyter extensions can also execute this&lt;/p&gt;
+
+&lt;h3 id=&quot;sharing&quot;&gt;Sharing&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;www.github.com&quot;&gt;Github&lt;/a&gt; and &lt;a href=&quot;www.nbviewer.org&quot;&gt;Nbviewer&lt;/a&gt; : A simple way to share Jupyter Notebooks. Enter the location of a Jupyter Notebook to have it rendered here. This can be used to render a ipynb shared on Github for example (this way to share ipynb is a popular way to share/render ipynb work)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://colab.research.google.com/&quot;&gt;Colaboratory&lt;/a&gt; in browser Python from Google
+With Colab you can harness the full power of popular Python libraries to analyze and visualize data. The code cell below uses numpy to generate some random data, and uses matplotlib to visualize it. To edit the code, just click the cell and start editing.
+With Colab you can import an image dataset, train an image classifier on it, and evaluate the model, all in just a few lines of code. Colab notebooks execute code on Google’s cloud servers, meaning you can leverage the power of Google hardware, including GPUs and TPUs, regardless of the power of your machine. All you need is a browser.&lt;/p&gt;</content><author><name></name></author><category term="R" /><summary type="html">In this course, we are looking at ways and formats available to present data science analysis and presentations. These are refered to as Data Products. The course exclusively uses the R language and R Studio plateform. Additionaly, We also describe how python and jupyter are used to produce data products</summary></entry><entry><title type="html">Coursera JHU Practical Machine Learning</title><link href="http://localhost:4000/setup/2022/06/10/coursera-hopkins-practical-ml.html" rel="alternate" type="text/html" title="Coursera JHU Practical Machine Learning" /><published>2022-06-10T09:30:00-04:00</published><updated>2022-06-10T09:30:00-04:00</updated><id>http://localhost:4000/setup/2022/06/10/coursera-hopkins-practical-ml</id><content type="html" xml:base="http://localhost:4000/setup/2022/06/10/coursera-hopkins-practical-ml.html">&lt;p&gt;For the Practical Machine Learning course, the students were asked to analyze a dataset from the Quantified Self Movement. This is a classification problem where we are asked to assess whehter exercise measurment provided as test qualify for corret or incorrect execution of the exercise. Correct execution and different types of incorrect executions were provided to train models.&lt;/p&gt;
+
+&lt;p&gt;My work can be found on &lt;a href=&quot;https://bluebonobo.github.io/coursera_hopkins_practicalmachinelearning/&quot;&gt;my Github account&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To summarize the work : After exploring, visualizing and cleaning the data, I train 3 models suited for a classifiation problem (Decision Tree Model, Gradient Boost Model, and Tree Bag). I perform a kfold cross validation when training each model. After comparing the accuracy and confusion matrices for each model, the TreeBag model performs best and I decide to proceed to the predition part of the assignmnent using the Treebag model&lt;/p&gt;
+
+&lt;p&gt;The data for this project come from &lt;a href=&quot;http://groupware.les.inf.puc-rio.br/har&quot;&gt;this source&lt;/a&gt;. At time of submiting the assignment this link is not working, I found &lt;a href=&quot;https://perceptualui.org/publications/velloso13_ah.pdf&quot;&gt;this link&lt;/a&gt; instead&lt;/p&gt;
+
+&lt;p&gt;I use the R &lt;a href=&quot;https://github.com/topepo/caret/&quot;&gt;caret package&lt;/a&gt; to split the data, train the models and predict the type of errors if any for a new set of exercise data. 
+Caret stands for Classification And REgression Training. The package contains tools for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;data splitting&lt;/li&gt;
+  &lt;li&gt;pre-processing&lt;/li&gt;
+  &lt;li&gt;feature selection&lt;/li&gt;
+  &lt;li&gt;model tuning using resampling&lt;/li&gt;
+  &lt;li&gt;variable importance estimation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I highly recommend reading this &lt;a href=&quot;https://cran.r-project.org/web/packages/caret/vignettes/caret.html&quot;&gt;introduction to Caret Package&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;decision-tree&quot;&gt;Decision tree&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DTModel_Fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rpart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trControl&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainControl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verboseIter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;training&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na.action&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na.pass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DTModel_Pred&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DTModel_Fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newdata&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DTModel_CM&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;confusionMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DTModel_Pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as.factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;bagging-tree-bag&quot;&gt;Bagging tree bag&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeBagModel_Fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;treebag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trControl&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainControl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verboseIter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clean_data_training&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na.action&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na.pass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeBagModel_Pred&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeBagModel_Fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newdata&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeBagModel_CM&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;confusionMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeBagModel_Pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as.factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;gradient-boost&quot;&gt;Gradient boost&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GBMModel_Fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gbm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trControl&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainControl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;verboseIter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clean_data_training&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na.action&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na.pass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GBMModel_Pred&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GBMModel_Fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newdata&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GBMModel_CM&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;confusionMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GBMModel_Pred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as.factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><category term="setup" /><summary type="html">For the Practical Machine Learning course, the students were asked to analyze a dataset from the Quantified Self Movement. This is a classification problem where we are asked to assess whehter exercise measurment provided as test qualify for corret or incorrect execution of the exercise. Correct execution and different types of incorrect executions were provided to train models.</summary></entry><entry><title type="html">Test post - Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2022/06/10/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Test post - Welcome to Jekyll!" /><published>2022-06-10T08:19:26-04:00</published><updated>2022-06-10T08:19:26-04:00</updated><id>http://localhost:4000/jekyll/update/2022/06/10/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/06/10/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

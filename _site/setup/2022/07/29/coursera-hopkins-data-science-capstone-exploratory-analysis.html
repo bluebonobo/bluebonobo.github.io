@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Coursera JHU Data Science Capstone Exploratory Analysis | Blue Bonobo</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Coursera JHU Data Science Capstone Exploratory Analysis" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods. This page presents the results of the exploratory data analysis phase of the JHU Coursera Capstone project." />
+<meta property="og:description" content="In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods. This page presents the results of the exploratory data analysis phase of the JHU Coursera Capstone project." />
+<link rel="canonical" href="http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html" />
+<meta property="og:url" content="http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html" />
+<meta property="og:site_name" content="Blue Bonobo" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-29T15:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Coursera JHU Data Science Capstone Exploratory Analysis" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-29T15:00:00-04:00","datePublished":"2022-07-29T15:00:00-04:00","description":"In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods. This page presents the results of the exploratory data analysis phase of the JHU Coursera Capstone project.","headline":"Coursera JHU Data Science Capstone Exploratory Analysis","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html"},"url":"http://localhost:4000/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Blue Bonobo" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Blue Bonobo</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Coursera JHU Data Science Capstone Exploratory Analysis</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-07-29T15:00:00-04:00" itemprop="datePublished">Jul 29, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods. This page presents the results of the exploratory data analysis phase of the JHU Coursera Capstone project.</p>
+
+<h2 id="exploratory-data-analysis">Exploratory data analysis</h2>
+
+<p>For each file in the english language (blogs, news and twitter), we build a VCorpus object, we clean the VCorpus by removing whitepaces, convert all to lower case, remove English stop words, remove punctuation, remove numbers, remove profanity and stem. We then tokenzie and finally create a DocumentTermMatrix.</p>
+
+<p><em>full analysis has been posted on Rpubs <a href="https://rpubs.com/bluebonobo/capstone_project_week2">here</a></em></p>
+
+<p>We show the top 10 words and a wordcloud for each file below.</p>
+
+<h3 id="blogs-file-analysis">Blogs File Analysis</h3>
+<p>The Sample Blogs file we are going to analyze consists of <strong>899288</strong> lines and <strong>364816</strong> terms.</p>
+
+<p><img src="/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10BlogTerms.png" alt="top10Blogs" class="img-responsive" /></p>
+
+<h3 id="news-file-analysis">News File Analysis</h3>
+<p>The Sample Blogs file we are going to analyze consists of <strong>1010242</strong> lines and <strong>271382</strong> terms.
+<img src="/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10NewsTerms.png" alt="top10News" class="img-responsive" /></p>
+
+<h3 id="twitter-file-analysis">Twitter File Analysis</h3>
+<p>The Sample Blogs file we are going to analyze consists of <strong>2360148</strong> lines and <strong>388357</strong> terms.
+<img src="/assets/2022-07-29-coursera-hopkins-data-science-capstone-exploratory-analysis/top10TwitterTerms.png" alt="top10Twitter" class="img-responsive" /></p>
+
+
+  </div><a class="u-url" href="/setup/2022/07/29/coursera-hopkins-data-science-capstone-exploratory-analysis.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Blue Bonobo</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Blue Bonobo</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bluebonobo"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bluebonobo</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Portfolio and Notes taken while working on topics I like. It includes data science, astrophysics, ed tech, fin tech, navigation systems, sailing, electronic music, adventure and more....</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
