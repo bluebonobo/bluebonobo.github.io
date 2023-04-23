@@ -26,7 +26,7 @@ We have referenced various used sailboat inventory sites to pull characteristics
 - headroom [ft]: Headroom refers to the vertical distance between the cabin sole (floor) and the underside of the deck or cabin roof. It is the measurement from the highest point of the cabin sole to the lowest point of the overhead structure.
  - url(s) : the urls of the listing
 
-![sailboat measures](/assets/2023-03-05-used-sailboat-market-analysis-part1/measures.wbp)
+![sailboat measures](/assets/2023-03-05-used-sailboat-market-analysis-part1/measures.webp)
 
 ## Data Format
 
