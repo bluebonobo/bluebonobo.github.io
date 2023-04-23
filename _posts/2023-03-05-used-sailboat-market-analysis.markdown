@@ -7,7 +7,7 @@ categories: setup
 
 In this upcoming article, we'll delve into the current state of the used sailboat market in the United States. Using marketplace data and expert opinions, we'll explore the trends and factors influencing the market, including supply and demand, pricing, age and condition of vessels, and regional variations. Whether you're a sailor looking to buy or sell a used boat, or simply interested in the boating industry, this article will provide insights into the state of the market.
 
-## The Data
+## Data Source, Data Collection and Data Prep
 
 We have referenced various used sailboat inventory sites to pull characteristics about the boats currently on the market. 
 
@@ -35,10 +35,9 @@ Libraries used include BeautifulSoup. A MS powerbi dashboard presents the inform
 ## Analysis
 
  Next evolutions should include 
- 1. time series based on regular data extractions
- 2. multiple source listings sites
- 3. deduping of entries
- 4. analysis of most likely t sell in a specific category, price range etc... could be done using AI
+ 1. Time series based on recurring data extractions. Trend analysis
+ 2. Multiple source sites and Deduping of entries
+ 4. Analysis of most likely t sell in a specific category, price range etc... could be done using AI
 
 Stay tuned...
 
