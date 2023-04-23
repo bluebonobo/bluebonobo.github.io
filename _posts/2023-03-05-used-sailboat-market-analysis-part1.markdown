@@ -30,6 +30,7 @@ We have referenced various used sailboat inventory sites to pull characteristics
 
 ## Data Format
 
+The data is extracted in the json format. Here is an [example dataset](/assets/2023-03-05-used-sailboat-market-analysis-part1/inventoryNov2017.json) extracted in Nov 2017 
 
 ## Data Inspection
 
