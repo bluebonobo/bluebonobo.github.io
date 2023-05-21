@@ -92,23 +92,6 @@ The data is extracted in the json format. Here is an [example dataset](/assets/2
         {"headroom": null, "make-model": "ROYAL HUISMAN ", "title": "2004\u00a0Royal Huisman", "url": "http://www.yachtworld.com/boats/2004/Royal-Huisman--3041392/United-States", "price": "US$\u00a053,000,000", "maxDraft": "5.50 m", "displacement": null, "beam": "12.20 m", "loa": "90.0 m", "location": "United States", "lwl": null, "year": "2004", "ballast": null},
         ]
 
-## Data Inspection
-
-## Data Prep
-
-## Approach
-
-This part of the project is written python using libraries such as BeautifulSoup and Scrapy. 
- 
-
-## Analysis
-
- Next evolutions should include 
- 1. Time series based on recurring data extractions. Trend analysis
- 2. Multiple source sites and Deduping of entries
- 4. Analysis of most likely t sell in a specific category, price range etc... could be done using AI
-
-Stay tuned...
 
 
 
