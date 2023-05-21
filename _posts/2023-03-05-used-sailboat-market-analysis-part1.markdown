@@ -28,9 +28,69 @@ We have referenced various used sailboat inventory sites to pull characteristics
 
 ![sailboat measures](/assets/2023-03-05-used-sailboat-market-analysis-part1/measures.webp)
 
+## Building the web scrapper
+
+I developed a scrapper in Python using the Scrapy library and  Beautiful Soup
+Scrapy framework takes care of the scaffolding of the project. The scrpaing code is developed and captured in the scrapers file located under /scrapers folder
+
+Here is an example used to scrape a used sailboat inventory site
+
+    import scrapy
+    #import urlparse
+    import urllib.parse
+    # https://doc.scrapy.org/en/latest/intro/tutorial.html
+
+    class BoatsSpider(scrapy.Spider):
+        name = "boats_details"
+
+        start_urls = [
+               'http://www.yachtworld.com/core/listing/cache/searchResults.jsp?N=2285+2279+1783',
+        ]
+
+
+        def parse(self, response):
+            for href in response.css('.make-model a::attr(href)'):
+                yield response.follow(href, self.parse_boat)
+
+            # follow pagination links - crawls ALL pages !
+            # for href in response.css('.navNext a::attr(href)'):
+            #     yield response.follow(href, self.parse)
+
+
+        def parse_boat(self, response):
+            def extract_with_css(query):
+                return response.css(query).extract_first().strip()
+
+            yield {
+                # 'boattitle' : boat.css('a::text'),
+                'title' : extract_with_css('div.boat-title h1::text'),
+                # 'year' : response.css('div.boat-title').re_first(r'\d\d\d\d'),
+                'price' : extract_with_css('div.boat-price::text'),
+                'location' : extract_with_css('div.boat-location::text'),
+                'loa' : response.css('div.fullspecs').re_first(r'LOA:\s*(.*)<br>'),
+                'lwl' : response.css('div.fullspecs').re_first(r'LWL:\s*(.*)<br>'),
+                'beam' : response.css('div.fullspecs').re_first(r'Beam:\s*(.*)<br>'),
+                'maxDraft' : response.css('div.fullspecs').re_first(r'Maximum Draft:\s*(.*)<br>'),
+                'displacement' : response.css('div.fullspecs').re_first(r'Displacement:\s*(.*)<br>'),
+                'ballast': response.css('div.fullspecs').re_first(r'Ballast:\s*(.*)<br>'),
+                'headroom' : response.css('div.fullspecs').re_first(r'Headroom:\s*(.*)<br>'),
+                'url' : response.request.url,
+                'make-model' : urlparse.urlsplit(response.request.url).path.split('/')[3].replace('-', ' ')[:-8].upper(), 
+                'year' : urlparse.urlsplit(response.request.url).path.split('/')[2],
+            }
+
+
+
+
+
 ## Raw Data Format
 
-The data is extracted in the json format. Here is an [example dataset](/assets/2023-03-05-used-sailboat-market-analysis-part1/inventoryNov2017.json) extracted in Nov 2017 
+The data is extracted in the json format. Here is an [example dataset](/assets/2023-03-05-used-sailboat-market-analysis-part1/inventoryNov2017.json) extracted in Nov 2017. Here are the 2 frist json records of the file :
+
+        [
+        {"headroom": null, "make-model": "HERRESHOFF SCHOONER INGOMAR", "title": "2016\u00a0Herreshoff Schooner Ingomar", "url": "http://www.yachtworld.com/boats/2016/Herreshoff-Schooner-Ingomar-2612668/ME/United-States", "price": "US$\u00a01,166,600", "maxDraft": "16 ft 7 in", "displacement": null, "beam": "24 ft 2 in", "loa": "176 ft 9 in", "location": "ME, United States", "lwl": "85 ft 10 in", "year": "2016", "ballast": null},
+        {"headroom": null, "make-model": "ROYAL HUISMAN ", "title": "2004\u00a0Royal Huisman", "url": "http://www.yachtworld.com/boats/2004/Royal-Huisman--3041392/United-States", "price": "US$\u00a053,000,000", "maxDraft": "5.50 m", "displacement": null, "beam": "12.20 m", "loa": "90.0 m", "location": "United States", "lwl": null, "year": "2004", "ballast": null},
+        ]
 
 ## Data Inspection
 
